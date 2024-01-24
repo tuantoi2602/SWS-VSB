@@ -1,0 +1,49 @@
+#Print help
+
+get-help
+
+#Print list of services formatted as table
+
+get-service | format-table
+
+#Print list of services that are in state "Running" and beggin with letter "L"
+
+get-service | where-object {$_.status -like "Running"} | where-object {$_.name -like "L"}
+
+#Print list of services , that short name is equals to long name
+
+get-service | where-object {$_.name -eq $_.displayName}
+
+#Print all commands that works with services
+
+get-service | get-member
+
+#Print all process sorted descending by property cpu and their pid (id) is lower then 1000
+
+get-process | where-object {$_.id -lt 1000} | sort-object id -desc
+
+#Print content of directory C:\windows
+
+dir C:\windows
+
+#Print only files that from directory c:\windows
+
+dir C:\windows | where-object {$_.mode -like "-a*"}
+
+#Swith to registry key HKCU\software\microsoft\windows\currentversion\run
+
+#Create new registry item that allow start calc.exe
+
+#Remove previouslyl created registry item
+
+#Add windows feature Windows Powershell Integrated Scripting Environment
+
+#Create script that will create temporary folder on drive C: and print into new file obsah.txt content of this directory
+
+#Create script that will wait for process calc.exe and then kill them immediatly
+
+#Create script that read into variables $a and $b valules from keyboard and if the sum will be bigger then 20 then print it. Otherwise it print their difference;
+
+#Change Execution policy to be able run script outside Powershell ISE
+
+#Print content of all directories that are in first level of directory c:\windows\boot
